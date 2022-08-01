@@ -1,0 +1,93 @@
+.reservation-choice {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    @media only screen and (min-width: 768px) {
+        flex-direction: column;
+    }
+    @media only screen and (min-width: 992px) {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .date-picker-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media only screen and (min-width: 768px) {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+    }
+    .date-picker {
+    }
+    .img-wrapper {
+        width: 36px;
+        @media only screen and (min-width: 768px) {
+            margin: 0 8px;
+            width: 36px;
+            margin-top: 28px;
+        }
+        @media only screen and (min-width: 1400px) {
+            margin: 0 10px;
+            margin-top: 28px;
+            width: 50px;
+        }
+    }
+    .title {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 21px;
+        color: $color-dark-blue;
+        margin: 0;
+    }
+    .imput-section {
+        width: 100%;
+        margin-left: 15px;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: $color-dark-blue;
+        @media only screen and (min-width: 420px) {
+            margin-left: 50px;
+        }
+        @media only screen and (min-width: 768px) {
+            margin-left: 0;
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 20px;
+        }
+        @media only screen and (min-width: 992px) {
+            width: auto;
+            flex-direction: column;
+            justify-content: start;
+            margin-top: 0;
+        }
+
+        .input {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 50px;
+            height: 45px;
+            background: #ffffff;
+            border: 1px solid #7589a4;
+            outline: none;
+            text-align: center;
+            @media only screen and (min-width: 420px) {
+                width: 80px;
+            }
+            @media only screen and (min-width: 568px) {
+                width: 150px;
+                height: 45px;
+            }
+        }
+    }
+}

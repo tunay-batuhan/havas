@@ -1,0 +1,42 @@
+.otel-information {
+    margin-bottom: 20px;
+    @media only screen and (min-width: 768px) {
+        margin-bottom: 35px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    @media only screen and (min-width: 1200px) {
+        margin-bottom: 74px;
+    }
+    .otel-name {
+        @media only screen and (min-width: 576px) {
+            margin-bottom: 10px;
+        }
+    }
+    .content-info {
+        flex-wrap: wrap;
+        @media only screen and (min-width: 768px) {
+            display: flex;
+        }
+        .text-content {
+            flex-basis: 50%;
+            width: 50%;
+            @media only screen and (min-width: 992px) {
+                flex-basis: content;
+                margin-right: 15px;
+            }
+        }
+    }
+    .text {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 25px;
+        color: $color-dark-blue;
+        margin-right: 10px;
+
+        &.type-2 {
+            color: $color-first-blue;
+            margin: 0;
+        }
+    }
+}

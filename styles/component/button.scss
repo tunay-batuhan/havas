@@ -1,0 +1,58 @@
+button {
+    outline: none;
+    border: none;
+    background-color: white;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+.primary-button {
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 8px;
+    color: $color-dark-blue;
+    padding: 8px 12px;
+    @media only screen and (min-width: 768px) {
+        font-size: 20px;
+        line-height: 23px;
+        padding: 14px 53px;
+    }
+}
+.secondary-button {
+    padding: 16px 16px;
+    background-color: $color-dark-blue;
+    border-radius: 6px;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+    @media only screen and (min-width: 768px) {
+        padding: 20px 34px;
+        font-size: 26px;
+        font-weight: 700;
+    }
+    &.type-2 {
+        padding: 8px 8px;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+        width: 100%;
+        height: 100%;
+        @media only screen and (min-width: 768px) {
+            padding: 10px 12px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+    }
+    &.type-3 {
+        background: transparent;
+        border: none;
+        outline: none;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 8px;
+        padding: 8px 28px;
+        font-size: 14px;
+    }
+}

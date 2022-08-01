@@ -9,10 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.6.1",
+    "@reduxjs/toolkit": "^1.8.3",
+    "axios": "^0.27.2",
+    "bootstrap": "^5.0.1",
     "next": "12.2.3",
     "react": "18.2.0",
+    "react-datepicker": "^4.8.0",
     "react-dom": "18.2.0",
-    "sass": "^1.54.0"
+    "react-hook-form": "^7.34.0",
+    "react-redux": "^8.0.2",
+    "react-select": "^5.4.0",
+    "redux": "^4.2.0",
+    "sass": "^1.54.0",
+    "sweetalert2": "^11.4.24",
+    "sweetalert2-react-content": "^5.0.2",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "eslint": "8.20.0",

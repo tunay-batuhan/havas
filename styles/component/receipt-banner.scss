@@ -1,0 +1,32 @@
+.receipt-banner {
+    color: white;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: -8px;
+    display: flex;
+    justify-content: center;
+    .banner-content {
+        max-width: 400px;
+        text-align: center;
+        @media only screen and (min-width: 576px) {
+            max-width: 600px;
+        }
+        @media only screen and (min-width: 768px) {
+            max-width: 700px;
+        }
+    }
+    .title {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 35px;
+    }
+    .text {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 23px;
+        opacity: 0.6;
+    }
+    .btn-wrapper {
+        margin-top: 25px;
+    }
+}

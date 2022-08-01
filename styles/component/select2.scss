@@ -1,0 +1,71 @@
+.hotelSelection {
+    margin-bottom: 20px;
+    @media only screen and (min-width: 768px) {
+        margin: 0 40px 35px 40px;
+    }
+    @media only screen and (min-width: 1200px) {
+        margin: 0 75px 74px 75px;
+    }
+}
+.css-b62m3t-container {
+    color: $color-first-blue !important;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    z-index: 9;
+    @media only screen and (min-width: 768px) {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 35px;
+    }
+    @media only screen and (min-width: 1200px) {
+        font-size: 30px;
+        font-weight: 700;
+    }
+}
+.css-14el2xx-placeholder {
+    color: $color-first-blue !important;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    @media only screen and (min-width: 768px) {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 35px;
+    }
+    @media only screen and (min-width: 1200px) {
+        font-size: 30px;
+        font-weight: 700;
+        padding-left: 50px !important;
+    }
+    &::before {
+        content: "";
+        background-image: url("../../public/search.png");
+        width: 18px;
+        height: 18px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        left: 0;
+        @media only screen and (min-width: 768px) {
+            width: 20px;
+            height: 20px;
+        }
+        @media only screen and (min-width: 1200px) {
+            width: 23px;
+            height: 23px;
+        }
+    }
+}
+.css-1s2u09g-control,
+.css-1pahdxg-control,
+.css-26l3gy-menu {
+    border-color: $color-first-blue !important;
+    border: 3px solid #7589a4;
+    border-radius: 20px !important;
+    padding: 12px 40px 12px 40px;
+    box-shadow: none !important;
+}
