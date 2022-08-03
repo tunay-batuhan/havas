@@ -6,6 +6,15 @@
     @media only screen and (min-width: 1200px) {
         margin-bottom: 74px;
     }
+    input {
+        display: none;
+    }
+    .card-input-element:checked + .primary-card {
+        border: 1px solid $color-green;
+    }
+    label {
+        cursor: pointer;
+    }
     .title {
         font-size: 18px;
         font-weight: 500;
@@ -48,21 +57,26 @@
         @media only screen and (min-width: 1200px) {
             margin-bottom: 74px;
         }
+
+        label:not(:last-child) {
+            .primary-card {
+                margin-right: 20px;
+                @media only screen and (min-width: 768px) {
+                    margin-right: 30px;
+                }
+            }
+        }
     }
+
     .primary-card {
         padding: 16px 30px;
         background-color: white;
         border: 1px solid $color-light-blue;
         border-radius: 9px;
         min-width: 300px;
-        &:not(:last-child) {
-            margin-right: 20px;
-        }
+        cursor: pointer;
         @media only screen and (min-width: 768px) {
             padding: 33px 56px;
-            &:not(:last-child) {
-                margin-right: 30px;
-            }
         }
         .card-title {
             font-size: 22px;

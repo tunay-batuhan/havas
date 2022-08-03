@@ -5,8 +5,8 @@ import Footer from "../Components/footer";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment } from "../store/counterSlice";
+import { useDispatch } from "react-redux";
+import { setLocalStroge, userFormData } from "../store/api";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
@@ -17,6 +17,8 @@ export default function Home() {
 
   const MySwal = withReactContent(Swal);
   const router = useRouter();
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -26,30 +28,22 @@ export default function Home() {
     formData.append("endDate", endDate);
     const data = Object.fromEntries(formData.entries());
     const controlData = Object.values(data);
-    console.log(controlData);
     if (controlData.includes("") || controlData.includes("undefined")) {
       MySwal.fire({
         icon: "error",
         text: "Otel seçimi, çıkış tarihi ve yetişkin sayısı dolu olmalı",
       });
     } else {
-      router.push("/stepSecond");
+      dispatch(setLocalStroge([data, "stepOneData"]));
+      router.push("stepSecond");
     }
-    // const control = Object.values(data).map((item, index) => {
-    //   if (item === "" || item === "undefined") {
-    //
-    //   } else {
-    //     console.log(item);
-    //     // router.push("/stepSecond");
-    //   }
-    // });
-    console.log(data);
   };
+
   return (
     <div className="container Home">
       <form onSubmit={handleSubmit}>
         <StepBanner />
-        <HotelSelection setSelectOtel={setSelectOtel} />
+        <HotelSelection selectOtel={selectOtel} setSelectOtel={setSelectOtel} />
         <ReservationChoice
           startDate={startDate}
           setStartDate={setStartDate}

@@ -1,22 +1,28 @@
 import DatePicker from "react-datepicker";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import calendarImage from "../public/calendar.png";
-import deneme from "../pages/deneme";
-
 export default function reservationChoice({
   startDate,
   setStartDate,
   endDate,
   setEndDate,
 }) {
+  const [value, setonChange] = useState(new Date());
+  const [fromData, setFromData] = useState([]);
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("stepOneData"));
+
+    if (data != null) {
+      setFromData(data);
+    }
+  }, []);
   return (
     <div className="reservation-choice padding-component bg-color-secondary">
       <div className="date-picker-wrapper">
         <div className="date-picker">
           <p className="title mb-1 text-md-end">Giriş Tarihi</p>
           <DatePicker
-            selected={startDate}
             onChange={(date) => setStartDate(date)}
             inline
             minDate={startDate}
@@ -39,11 +45,19 @@ export default function reservationChoice({
       <div className="imput-section">
         <div className="input">
           <span className="text">Yetişkin sayısı</span>
-          <input maxLength="1" name="adult"></input>
+          <input
+            maxLength="1"
+            name="adult"
+            defaultValue={fromData.adult}
+          ></input>
         </div>
         <div className="input">
           <span className="text">Çocuk sayısı</span>
-          <input maxLength="1" name="child" defaultValue="0"></input>
+          <input
+            maxLength="1"
+            name="child"
+            defaultValue={fromData.child}
+          ></input>
         </div>
       </div>
     </div>

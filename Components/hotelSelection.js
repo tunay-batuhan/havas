@@ -1,31 +1,30 @@
 import Select from "react-select";
-import { useState } from "react";
-import axios from "axios";
-export default function hotelSelection({ setSelectOtel }) {
+import { useEffect, useState } from "react";
+import { getOtelList } from "./api";
+export default function hotelSelection({ selectOtel, setSelectOtel }) {
   const [otel, setOtel] = useState();
+  const [delay, setDelay] = useState(false);
 
-  const getOtelList = async () => {
-    const url = "https://628e2457a339dfef87a85d4e.mockapi.io/havascx/hotels";
-    const response = await axios(url);
-
-    const otelList = response.data.map((item) => {
-      return { id: item.id, label: item.hotel_name };
-    });
-
-    setOtel(otelList);
-  };
-  useState(() => {
-    getOtelList();
+  useEffect(() => {
+    getOtelList(setOtel);
+    const data = JSON.parse(localStorage.getItem("stepOneData"));
+    if (data != null) {
+      setSelectOtel({ id: data.otelId, label: data.otelName });
+    }
+    setTimeout(() => {
+      setDelay(true);
+    }, 100);
   }, []);
-
-  return (
-    <div className="hotelSelection ">
-      <Select
-        options={otel}
-        instanceId="long-value-select"
-        placeholder="Rezervasyon yapmak istediğiniz oteli seçiniz."
-        onChange={(e) => setSelectOtel(e)}
-      />
-    </div>
-  );
+  if (delay == true) {
+    return (
+      <div className="hotelSelection ">
+        <Select
+          defaultValue={selectOtel}
+          placeholder="Rezervasyon yapmak istediğiniz oteli seçiniz."
+          onChange={(e) => setSelectOtel(e)}
+          options={otel}
+        />
+      </div>
+    );
+  }
 }
