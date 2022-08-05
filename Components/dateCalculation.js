@@ -9,4 +9,15 @@ const dateFormat = (stringDate) => {
     date.getFullYear(),
   ].join(".");
 };
-export { dateFormat };
+
+// calculate start to end day
+const beetwenTwoDate = (date1, date2) => {
+  let dateOne = new Date(date1);
+  let dateTwo = new Date(date2);
+
+  let differencetime =
+    (dateTwo.getTime() - dateOne.getTime()) / (1000 * 3600 * 24);
+  return Math.ceil(differencetime);
+};
+
+export { dateFormat, beetwenTwoDate };

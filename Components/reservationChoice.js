@@ -8,10 +8,9 @@ export default function reservationChoice({
   endDate,
   setEndDate,
 }) {
-  const [value, setonChange] = useState(new Date());
   const [fromData, setFromData] = useState([]);
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("stepOneData"));
+    const data = JSON.parse(localStorage.getItem("userFormData"));
 
     if (data != null) {
       setFromData(data);
@@ -23,6 +22,7 @@ export default function reservationChoice({
         <div className="date-picker">
           <p className="title mb-1 text-md-end">Giriş Tarihi</p>
           <DatePicker
+            value={startDate}
             onChange={(date) => setStartDate(date)}
             inline
             minDate={startDate}
@@ -34,6 +34,7 @@ export default function reservationChoice({
         <div className="date-picker">
           <p className="title d-none d-md-block mb-1">Çıkış Tarihi</p>
           <DatePicker
+            value={endDate}
             onChange={(date) => setEndDate(date)}
             inline
             minDate={startDate}
@@ -49,6 +50,7 @@ export default function reservationChoice({
             maxLength="1"
             name="adult"
             defaultValue={fromData.adult}
+            type="number"
           ></input>
         </div>
         <div className="input">
@@ -57,6 +59,7 @@ export default function reservationChoice({
             maxLength="1"
             name="child"
             defaultValue={fromData.child}
+            type="number"
           ></input>
         </div>
       </div>

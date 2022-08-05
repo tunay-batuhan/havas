@@ -7,9 +7,12 @@ export const api = createSlice({
   },
   reducers: {
     setLocalStroge: (state, action) => {
-      let data = action.payload[0];
-      let name = action.payload[1];
-      localStorage.setItem(name, JSON.stringify(data));
+      let data = action.payload;
+      let userData = JSON.parse(localStorage.getItem("userFormData"));
+      localStorage.setItem(
+        "userFormData",
+        JSON.stringify({ ...userData, ...data })
+      );
     },
   },
 });

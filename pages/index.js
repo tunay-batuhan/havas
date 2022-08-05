@@ -6,7 +6,7 @@ import Footer from "../Components/footer";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { useDispatch } from "react-redux";
-import { setLocalStroge, userFormData } from "../store/api";
+import { setLocalStroge } from "../store/api";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
@@ -24,17 +24,18 @@ export default function Home() {
     const formData = new FormData(e.currentTarget);
     formData.append("otelName", selectOtel.label);
     formData.append("otelId", selectOtel.id);
-    formData.append("startDate", startDate);
-    formData.append("endDate", endDate);
+    formData.append("startDate", new Date(startDate).toJSON().slice(0, 10));
+    formData.append("endDate", new Date(endDate).toJSON().slice(0, 10));
     const data = Object.fromEntries(formData.entries());
     const controlData = Object.values(data);
+    console.log(data);
     if (controlData.includes("") || controlData.includes("undefined")) {
       MySwal.fire({
         icon: "error",
         text: "Otel seçimi, çıkış tarihi ve yetişkin sayısı dolu olmalı",
       });
     } else {
-      dispatch(setLocalStroge([data, "stepOneData"]));
+      dispatch(setLocalStroge(data));
       router.push("stepSecond");
     }
   };

@@ -7,7 +7,7 @@ export default function hotelSelection({ selectOtel, setSelectOtel }) {
 
   useEffect(() => {
     getOtelList(setOtel);
-    const data = JSON.parse(localStorage.getItem("stepOneData"));
+    const data = JSON.parse(localStorage.getItem("userFormData"));
     if (data != null) {
       setSelectOtel({ id: data.otelId, label: data.otelName });
     }

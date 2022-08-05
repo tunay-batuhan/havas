@@ -1,0 +1,181 @@
+.credit-card {
+    position: relative;
+    padding: 22px 16px;
+    border-radius: 30px;
+    @media only screen and (min-width: 768px) {
+        padding: 46px 25px;
+    }
+    .card-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p {
+            margin: 0;
+        }
+        .text {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 35px;
+            color: $color-dark-blue;
+            @media only screen and (min-width: 768px) {
+                font-size: 30px;
+                font-weight: 700;
+                line-height: 35px;
+            }
+        }
+        .sub-text {
+            font-size: 18px;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 35px;
+            color: $color-first-blue;
+            @media only screen and (min-width: 768px) {
+                font-size: 30px;
+                font-weight: 700;
+                line-height: 35px;
+            }
+        }
+    }
+    .card-img {
+        background-image: url("../../public/credit-card.png");
+        width: 40px;
+        height: 40px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 10px 0;
+        @media only screen and (min-width: 768px) {
+            margin: 25px 0;
+        }
+    }
+    .card-number {
+        color: $color-dark-blue;
+        padding-left: 15px;
+        @media only screen and (min-width: 768px) {
+            padding-left: 35px;
+        }
+        p {
+            margin: 0;
+        }
+        .credit-number {
+            font-size: 25px;
+            font-weight: 700;
+            line-height: 47px;
+
+            @media only screen and (min-width: 768px) {
+                font-size: 40px;
+                font-weight: 700;
+                line-height: 47px;
+            }
+        }
+        .pw {
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 25px;
+            @media only screen and (min-width: 768px) {
+                font-size: 40px;
+                font-weight: 700;
+                line-height: 47px;
+            }
+        }
+        .date {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 15px;
+            @media only screen and (min-width: 768px) {
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 23px;
+            }
+        }
+    }
+    &:before {
+        content: "";
+        background-image: url(../../public/red.png);
+        width: 40px;
+        height: 40px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        bottom: 16px;
+        right: 22px;
+        z-index: 2;
+        margin-right: 22px;
+        @media only screen and (min-width: 768px) {
+            bottom: 25px;
+            right: 46px;
+        }
+    }
+    &:after {
+        content: "";
+        background-image: url(../../public/yellow.png);
+        width: 40px;
+        height: 40px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        bottom: 16px;
+        right: 22px;
+        @media only screen and (min-width: 768px) {
+            bottom: 25px;
+            right: 46px;
+        }
+    }
+}
+.credit-form-section {
+    margin-bottom: 35px;
+    .title {
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 35px;
+        color: $color-first-blue;
+        margin-bottom: 35px;
+        @media only screen and (min-width: 768px) {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 35px;
+        }
+    }
+    .form-grup {
+        display: flex;
+        flex-direction: column;
+        color: $color-dark-blue;
+        margin-bottom: 20px;
+        label {
+            margin-bottom: 5px;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 23px;
+        }
+        input {
+            border: 1px solid $color-dark-blue;
+            border-radius: 6px;
+            min-height: 56px;
+            width: 100%;
+            &::placeholder {
+                padding: 16px 25px;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 23px;
+            }
+        }
+    }
+    select {
+        border: 1px solid $color-dark-blue;
+        border-radius: 6px;
+        min-height: 56px;
+        &::placeholder {
+            padding: 16px 25px;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 23px;
+        }
+    }
+    select {
+        width: 150px;
+        margin: 10px;
+    }
+    select:focus {
+        min-width: 150px;
+        width: auto;
+    }
+}
