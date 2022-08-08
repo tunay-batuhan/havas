@@ -62,19 +62,29 @@
             line-height: 47px;
 
             @media only screen and (min-width: 768px) {
+                font-size: 30px;
+                font-weight: 700;
+                line-height: 47px;
+            }
+            @media only screen and (min-width: 1200px) {
                 font-size: 40px;
                 font-weight: 700;
                 line-height: 47px;
             }
         }
         .pw {
-            font-size: 22px;
+            font-size: 16px;
             font-weight: 700;
-            line-height: 25px;
+            line-height: 15px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 75%;
+            margin-bottom: 5px;
             @media only screen and (min-width: 768px) {
-                font-size: 40px;
+                font-size: 32px;
                 font-weight: 700;
-                line-height: 47px;
+                line-height: 35px;
             }
         }
         .date {
@@ -151,31 +161,33 @@
             border-radius: 6px;
             min-height: 56px;
             width: 100%;
-            &::placeholder {
-                padding: 16px 25px;
-                font-size: 20px;
-                font-weight: 500;
-                line-height: 23px;
-            }
-        }
-    }
-    select {
-        border: 1px solid $color-dark-blue;
-        border-radius: 6px;
-        min-height: 56px;
-        &::placeholder {
             padding: 16px 25px;
             font-size: 20px;
             font-weight: 500;
             line-height: 23px;
         }
     }
-    select {
-        width: 150px;
-        margin: 10px;
+    .cvv {
+        height: 100%;
+        border: 1px solid #132f56;
+        border-radius: 6px;
+        text-align: center;
+        width: 100%;
+        &:focus,
+        &:focus-visible {
+            outline: none;
+        }
     }
-    select:focus {
-        min-width: 150px;
-        width: auto;
+    .css-1s2u09g-control,
+    .css-1pahdxg-control,
+    .css-26l3gy-menu {
+        border: 1px solid #132f56;
+        border-radius: 6px;
+        min-height: 56px;
+        width: 100%;
+        cursor: pointer;
+        &:hover {
+            border: 1px solid #132f56;
+        }
     }
 }

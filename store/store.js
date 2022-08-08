@@ -3,6 +3,6 @@ import apiReducer from "./api";
 
 export const store = configureStore({
   reducer: {
-    counter: apiReducer,
+    userData: apiReducer,
   },
 });

@@ -1,9 +1,18 @@
-export default function receipt({ display, fromData }) {
-  const totalCast =
-    (Number(fromData.roomtype) * Number(fromData.roomScenic)) / 100 +
-    Number(fromData.roomtype) * Number(fromData.adult);
-  const accomodationCast =
-    Number(fromData.roomtype) * Number(fromData.dayDifference);
+import { getCouponCode } from "./api";
+
+export default function receipt({
+  display,
+  fromData,
+  totalCast,
+  setcouponCode,
+  setFromData,
+  couponCode,
+}) {
+  const getCoupon = () => {
+    let code = document.getElementById("couponCode").value.toUpperCase();
+    getCouponCode(setcouponCode, code);
+    setFromData({ ...fromData, coupon_code: couponCode });
+  };
   return (
     <div className="receipt padding-component margin-component bg-color-secondary">
       <h2 className="title">{fromData.otelName}</h2>
@@ -48,10 +57,16 @@ export default function receipt({ display, fromData }) {
           <div className={`secondary-card ${display}`}>
             <div className="row">
               <div className="col-6">
-                <input placeholder="kupon kodu" />
+                <input placeholder="kupon kodu" id="couponCode" />
               </div>
               <div className="col-6">
-                <button className="secondary-button type-2">Kodu Kullan</button>
+                <button
+                  type="button"
+                  className="secondary-button type-2"
+                  onClick={getCoupon}
+                >
+                  Kodu Kullan
+                </button>
               </div>
             </div>
           </div>
@@ -60,7 +75,9 @@ export default function receipt({ display, fromData }) {
           <div className="secondary-card type-2">
             <div className="top-content">
               <p className="text">Oda Fiyatı:</p>
-              <p className="text sub-text">{fromData.roomtype} TL</p>
+              <p className="text sub-text">
+                {fromData.roomtype / fromData.dayDifference} TL
+              </p>
             </div>
             <div className="top-content">
               <p className="text">Fiyat Etki Oranı:</p>
@@ -68,13 +85,17 @@ export default function receipt({ display, fromData }) {
             </div>
             <div className="top-content">
               <p className="text">Konaklama ({fromData.dayDifference} Gün)</p>
-              <p className="text sub-text">
-                {fromData.roomtype != undefined ? accomodationCast : false}
-              </p>
+              <p className="text sub-text">{fromData.roomtype} TL</p>
+            </div>
+            <div className="top-content">
+              <p className="text">İndirim </p>
+              <p className="text sub-text">{"-" + couponCode + "TL"}</p>
             </div>
             <div className="cost">
               <p className="text">Toplam tutar</p>
-              <p className="text big-text"> {totalCast} TL</p>
+              <p className="text big-text">
+                {totalCast - (couponCode || 0)} TL
+              </p>
             </div>
           </div>
         </div>

@@ -4,4 +4,13 @@
         justify-content: space-between;
         align-items: center;
     }
+    .step {
+        cursor: pointer;
+    }
+    .secondary-button {
+        @media only screen and (max-width: 576px) {
+            font-size: 14px;
+            padding: 8px;
+        }
+    }
 }

@@ -29,11 +29,6 @@ export default function otelType({ roomScenic, roomtype, adult, date }) {
                           : index == 0
                       }
                     />
-                    {console.log(
-                      fromData.roomtype,
-                      "burası",
-                      item.price * adult * day
-                    )}
                     <div className="primary-card">
                       <p className="card-title">{item.title}</p>
                       <Image
@@ -52,7 +47,6 @@ export default function otelType({ roomScenic, roomtype, adult, date }) {
                         <div className="price">
                           <span className="text-price">
                             {item.price * adult * day} TL
-                            {console.log(day)}
                           </span>
                         </div>
                       </div>
@@ -60,7 +54,7 @@ export default function otelType({ roomScenic, roomtype, adult, date }) {
                   </label>
                 );
               })
-            : "yükleniyor"}
+            : "yükleniyor..."}
         </div>
         <p className="title">Oda Tipi Seçimi</p>
         <div className="card-section">
@@ -75,9 +69,7 @@ export default function otelType({ roomScenic, roomtype, adult, date }) {
                       name="roomScenic"
                       title={item.title}
                       defaultChecked={
-                        fromData.roomScenic
-                          ? item.price_rate == fromData.roomScenic
-                          : index == 0
+                        item.price_rate == fromData.roomScenic || index == 0
                       }
                     />
                     <div className="primary-card">
@@ -92,8 +84,8 @@ export default function otelType({ roomScenic, roomtype, adult, date }) {
                       />
                       <div className="card-content">
                         <div className="info-rev">
-                          <span className="text">5 gün</span>
-                          <span className="text">1 yetişkin</span>
+                          <span className="text">{day} gün</span>
+                          <span className="text">{adult} yetişkin</span>
                         </div>
                         <div className="price">
                           <span className="text-price">
@@ -105,7 +97,7 @@ export default function otelType({ roomScenic, roomtype, adult, date }) {
                   </label>
                 );
               })
-            : "yükleniyor"}
+            : "yükleniyor..."}
         </div>
       </div>
     </>

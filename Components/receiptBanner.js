@@ -1,7 +1,11 @@
 import Image from "next/image";
 import calendar from "../public/calendar-green.png";
-
+import { useRouter } from "next/router";
 export default function receiptBanner() {
+  const router = useRouter();
+  const updateReservation = () => {
+    router.push("/");
+  };
   return (
     <div className="receipt-banner padding-component bg-color-primary margin-component">
       <div className="banner-content">
@@ -13,8 +17,11 @@ export default function receiptBanner() {
           kullanabilirsiniz.
         </p>
         <div className="btn-wrapper">
-          <button className="secondary-button type-3">
-            Yeni Rezervasyon Yap
+          <button
+            className="secondary-button type-3"
+            onClick={updateReservation}
+          >
+            Rezervasyonu Güncelle
           </button>
         </div>
       </div>

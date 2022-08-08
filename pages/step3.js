@@ -13,7 +13,12 @@ export default function stepEnd() {
     <>
       <ReceiptBanner></ReceiptBanner>
       <div className="container">
-        <Receipt display={"d-none"} fromData={fromData}></Receipt>
+        <Receipt
+          display={"d-none"}
+          fromData={fromData}
+          couponCode={fromData.coupon_code}
+          totalCast={fromData.totalCast}
+        ></Receipt>
       </div>
     </>
   );
